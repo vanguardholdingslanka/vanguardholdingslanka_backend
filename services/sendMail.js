@@ -7,9 +7,19 @@ const sendRFQMail = async (rfqData, files = []) => {
     // TRANSPORTER
     // =========================================
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
 
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -59,7 +69,7 @@ const sendRFQMail = async (rfqData, files = []) => {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
 
-      to: "dileshpbiz@gmail.com",
+      to: "sajindushamalka@gmail.com",
 
       subject: "New RFQ Submission",
 
