@@ -7,14 +7,14 @@ const sendRFQMail = async (rfqData, files = []) => {
     // TRANSPORTER
     // =========================================
 
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
 
-    //   auth: {
-    //     user: process.env.EMAIL_USER,
-    //     pass: process.env.EMAIL_PASS,
-    //   },
-    // });
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
     // const transporter = nodemailer.createTransport({
     //   host: "smtp.gmail.com",
@@ -29,22 +29,22 @@ const sendRFQMail = async (rfqData, files = []) => {
     // console.log(process.env.EMAIL_USER);
     // console.log(process.env.EMAIL_PASS);
 
-    const transporter = nodemailer.createTransport({
-      host: "142.250.141.108",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: "142.250.141.108",
+    //   port: 587,
+    //   secure: false,
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
 
-    try {
-      await transporter.verify();
-      console.log("SMTP VERIFIED");
-    } catch (err) {
-      console.error("VERIFY ERROR:", err);
-    }
+    // try {
+    //   await transporter.verify();
+    //   console.log("SMTP VERIFIED");
+    // } catch (err) {
+    //   console.error("VERIFY ERROR:", err);
+    // }
 
 
     // =========================================
