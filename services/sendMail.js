@@ -18,7 +18,7 @@ const sendRFQMail = async (rfqData, files = []) => {
 
     const transporter = nodemailer.createTransport({
       host: "mail.privateemail.com",
-      port: 587,
+      port: 465,
       secure: false,
       auth: {
         user: process.env.EMAIL_USER,
