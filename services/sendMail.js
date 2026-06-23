@@ -26,6 +26,9 @@ const sendRFQMail = async (rfqData, files = []) => {
       },
     });
 
+    console.log(process.env.EMAIL_USER);
+    console.log(process.env.EMAIL_PASS);
+
 
     // =========================================
     // ATTACHMENTS
