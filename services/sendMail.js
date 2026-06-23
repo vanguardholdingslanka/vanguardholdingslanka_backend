@@ -16,6 +16,19 @@ const sendRFQMail = async (rfqData, files = []) => {
     //   },
     // });
 
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 587,
+    //   secure: false,
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
+
+    // console.log(process.env.EMAIL_USER);
+    // console.log(process.env.EMAIL_PASS);
+
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -26,8 +39,12 @@ const sendRFQMail = async (rfqData, files = []) => {
       },
     });
 
-    console.log(process.env.EMAIL_USER);
-    console.log(process.env.EMAIL_PASS);
+    try {
+      await transporter.verify();
+      console.log("SMTP VERIFIED");
+    } catch (err) {
+      console.error("VERIFY ERROR:", err);
+    }
 
 
     // =========================================
