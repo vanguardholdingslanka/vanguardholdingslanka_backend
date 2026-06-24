@@ -66,6 +66,8 @@ app.get("/api/test-email", async (req, res) => {
       },
     });
 
+    console.log(process.env.EMAIL_PASS)
+
     const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "sajindushamalka@gmail.com", // change if needed
